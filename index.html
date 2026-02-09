@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nebby Navigator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #020617;
+            color: #f8fafc;
+            overflow: hidden;
+            height: 100dvh;
+            user-select: none;
+        }
+
+        /* Glassmorphism Classes */
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Nebby CSS Character */
+        .nebby-container {
+            width: var(--nebby-size, 130px);
+            height: var(--nebby-size, 130px);
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            filter: drop-shadow(0 0 25px var(--glow-color));
+            transition: all 0.5s ease;
+        }
+
+        .nebby-container.compact {
+            --nebby-size: 80px;
+            --nebby-body-size: 55px;
+        }
+
+        .nebby-body {
+            width: var(--nebby-body-size, 90px);
+            height: var(--nebby-body-size, 90px);
+            background: var(--nebby-bg);
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            animation: morph 6s ease-in-out infinite alternate, float 4s ease-in-out infinite;
+            position: relative;
+            transition: all 0.5s ease;
+        }
+
+        .nebby-face {
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            gap: 12px;
+            z-index: 10;
+        }
+
+        .nebby-container.compact .nebby-face {
+            gap: 8px;
+        }
+
+        .nebby-eye {
+            width: 12px;
+            height: 12px;
+            background: #fff;
+            border-radius: 50%;
+            transition: all 0.6s ease;
+        }
+        
+        .nebby-container.compact .nebby-eye {
+            width: 8px;
+            height: 8px;
+        }
+
+        /* Quiet Nebula vs Supernova Theming */
+        body.quietNebula {
+            --nebby-bg: radial-gradient(circle at 30% 30%, #a78bfa, #4c1d95);
+            --glow-color: rgba(139, 92, 246, 0.5);
+            --accent: #a78bfa;
+        }
+        body.supernova {
+            --nebby-bg: radial-gradient(circle at 30% 30%, #fcd34d, #b45309);
+            --glow-color: rgba(245, 158, 11, 0.5);
+            --accent: #fcd34d;
+        }
+
+        body.quietNebula .nebby-eye { height: 3px; border-radius: 2px; transform: translateY(6px); }
+        body.supernova .nebby-eye { width: 16px; height: 16px; border: 3px solid #000; }
+        
+        body.quietNebula .nebby-container.compact .nebby-eye { height: 2px; transform: translateY(4px); }
+        body.supernova .nebby-container.compact .nebby-eye { width: 10px; height: 10px; border: 2px solid #000; }
+
+        @keyframes morph {
+            0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+            100% { border-radius: 30% 70% 40% 60% / 50% 60% 30% 70%; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+        
+        /* Black Hole Animation */
+        .blackhole-effect {
+            animation: blackhole 0.8s cubic-bezier(0.55, 0.085, 0.68, 0.53) forwards;
+        }
+        @keyframes blackhole {
+            0% {
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(200px) scale(0) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .stardust-entry {
+            animation: stardust 0.5s ease-out backwards;
+        }
+        @keyframes stardust {
+            0% { transform: scale(0.5) translateY(20px); opacity: 0; }
+            100% { transform: scale(1) translateY(0); opacity: 1; }
+        }
+
+        /* Star Map Styles */
+        .star {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background-color: var(--star-color);
+            border-radius: 50%;
+            box-shadow: 0 0 8px 2px var(--star-color);
+            animation: twinkle 4s infinite ease-in-out;
+            transform-origin: center;
+        }
+        .star-default {
+            width: 3px;
+            height: 3px;
+            animation-duration: 6s; /* Slower twinkle for background stars */
+            box-shadow: 0 0 6px 1px var(--star-color);
+        }
+        @keyframes twinkle {
+            0%, 100% { transform: scale(0.5); opacity: 0.5; }
+            50% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Triage Animations */
+        .triage-enter {
+            animation: triage-fade-in 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+        @keyframes triage-fade-in {
+            0% { opacity: 0; transform: scale(0.95); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        .triage-task-exit {
+            animation: task-exit 0.3s cubic-bezier(0.55, 0.085, 0.68, 0.53) forwards;
+        }
+        @keyframes task-exit {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(0.8); opacity: 0; }
+        }
+
+
+        /* Custom Scrollbar */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.40.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="quietNebula">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>

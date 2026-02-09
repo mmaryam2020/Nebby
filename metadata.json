@@ -1,0 +1,8 @@
+
+{
+  "name": "Nebby Navigator",
+  "description": "An intergalactic self-care app featuring Nebby, your personal co-pilot, to help you navigate tasks and manage your energy levels between 'Survival' and 'Growth' modes using AI-powered task generation.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
