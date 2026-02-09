@@ -54,14 +54,12 @@ Dump your chaotic thoughts into the "Black Hole" using text or **Voice Input**.
    npm install
    ```
 3. **Set up API Key**:
-   - Create a `.env` file in the root directory.
-   - Add your key: `API_KEY=your_google_gemini_key_here`
-   - **IMPORTANT**: Never commit the `.env` file to GitHub.
+   - Copy the example env file: `cp .env.example .env.local`
+   - Replace the placeholder with your real key: `GEMINI_API_KEY=your_google_gemini_key_here`
+   - **IMPORTANT**: Never commit `.env.local` or `.env` files to GitHub.
 4. **Run the app**:
    ```bash
    npm start
    ```
-
----
 
 *“Even stars need to dim sometimes to save fuel.”* — Nebby
