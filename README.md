@@ -62,21 +62,6 @@ Dump your chaotic thoughts into the "Black Hole" using text or **Voice Input**.
    npm start
    ```
 
-## 🔒 Security & Deployment
-
-### Is the API Key Safe?
-The source code references `process.env.API_KEY`, so your actual key is **not** hardcoded in the files. It is safe to push this code to GitHub as long as you **do not commit your `.env` file**. A `.gitignore` file is included to prevent this.
-
-### Deployment (e.g., Vercel, Netlify, GitHub Pages)
-Since this is a client-side application, your API key will be embedded in the browser code so the app can talk to Google.
-To secure your key:
-1. Go to the [Google Cloud Console](https://console.cloud.google.com/apis/credentials).
-2. Locate your API Key.
-3. Under "Application restrictions", select **Websites**.
-4. Add the URL of your deployed app (e.g., `https://your-username.github.io` or `https://nebby-navigator.vercel.app`).
-
-This ensures that even if someone finds your key, they cannot use it from a different website.
-
 ---
 
 *“Even stars need to dim sometimes to save fuel.”* — Nebby
