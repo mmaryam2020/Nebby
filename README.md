@@ -5,8 +5,6 @@
 
 Nebby Navigator is a gamified self-care and productivity companion designed to help you manage energy and tasks. At its heart is **Nebby**, a friendly, glowing space-blob who adapts to your "fuel levels" to help you decide when to cruise and when to engage warp drive.
 
-**Live at**: [https://nebby.hexora.ca](https://nebby.hexora.ca)
-
 ---
 
 ## Key Features
@@ -59,11 +57,6 @@ Dump your chaotic thoughts into the "Black Hole" using text or **Voice Input**.
 - Model: `gemini-flash-lite-latest`
 - Features: Brain dump triage (text to structured tasks)
 
-### Infrastructure
-- **HTTPS** via Let's Encrypt (auto-renewal)
-- **nginx** reverse proxy
-- **pm2** process manager
-
 ---
 
 ## Getting Started
@@ -76,8 +69,8 @@ Dump your chaotic thoughts into the "Black Hole" using text or **Voice Input**.
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/mmaryam2020/Nebby.git
-   cd Nebby
+   git clone https://github.com/yourusername/nebby-navigator.git
+   cd nebby-navigator
    ```
 
 2. **Install dependencies**:
