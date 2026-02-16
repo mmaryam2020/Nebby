@@ -29,9 +29,11 @@ export interface Task {
 
 export interface CompletedTask {
     id: number;
+    text: string;
     type: 'quietNebula' | 'supernova' | 'default';
     x: number; // percentage
     y: number; // percentage
+    completedDate: string; // YYYY-MM-DD format
     expeditionId?: number;
     expeditionTitle?: string;
 }
@@ -39,6 +41,7 @@ export interface CompletedTask {
 export interface LogEntry {
     id: string;
     date: string;
+    createdAt: number;
     mood: number;
     text: string;
 }
