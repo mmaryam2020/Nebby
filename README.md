@@ -5,6 +5,10 @@
 
 Nebby Navigator is a gamified self-care and productivity companion designed to help you manage energy and tasks. At its heart is **Nebby**, a friendly, glowing space-blob who adapts to your "fuel levels" to help you decide when to cruise and when to engage warp drive.
 
+<p align="center">
+  <img src="screenshots/supernova-console.jpeg" alt="Nebby Navigator - Supernova Mode" width="300">
+</p>
+
 ---
 
 ## Key Features
